@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tony Di Bonifacio</title>
+<meta name="description" content="Tony Di Bonifacio (ToeKnee-top) — developer and game maker. Building games for friends' sites and tinkering with Slack bots." />
+<meta property="og:title" content="Tony Di Bonifacio" />
+<meta property="og:description" content="I make games for my friends' sites." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#09090b;
+    --card:#131316;
+    --card2:#18181b;
+    --border:#27272a;
+    --muted:#a1a1aa;
+    --fg:#fafafa;
+    --accent:#8b8bf5;
+    --accent-soft:rgba(139,139,245,.12);
+    --maxw:1100px;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--fg);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(12px);
+    background:rgba(9,9,11,.8);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:600;font-size:.95rem;letter-spacing:-.01em}
+  .logo span{color:var(--accent)}
+  .navlinks{display:flex;gap:6px;align-items:center}
+  .navlinks a{padding:6px 10px;font-size:.9rem;color:var(--muted);border-radius:8px;transition:.15s}
+  .navlinks a:hover{color:var(--fg);background:var(--card2)}
+  .navbtn{color:var(--fg)!important;background:var(--accent-soft);border:1px solid var(--border)}
+  .navbtn:hover{background:rgba(139,139,245,.2)}
+  @media(max-width:640px){.navlinks a:not(.navbtn){display:none}}
+
+  /* ---------- hero ---------- */
+  header{padding:110px 0 70px;position:relative;overflow:hidden}
+  .glow{position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(120px);opacity:.18;pointer-events:none}
+  .glow1{background:#8b8bf5;top:-300px;left:-150px}
+  .glow2{background:#22d3ee;bottom:-250px;right:-120px}
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid var(--border);background:var(--card);
+    padding:5px 12px;border-radius:999px;font-size:.8rem;color:var(--muted);
+    margin-bottom:26px;
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px #4ade80}
+  h1{
+    font-size:clamp(2.6rem,6vw,4.4rem);
+    font-weight:700;letter-spacing:-.03em;line-height:1.05;
+    margin-bottom:24px;
+  }
+  h1 .grad{background:linear-gradient(90deg,var(--accent),#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{font-size:1.15rem;color:var(--muted);max-width:640px;margin-bottom:34px}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 20px;border-radius:10px;font-weight:500;font-size:.95rem;
+    transition:.15s;border:1px solid var(--border);
+  }
+  .btn-primary{background:var(--accent);color:#0a0a0f;border-color:var(--accent)}
+  .btn-primary:hover{filter:brightness(1.1)}
+  .btn-ghost{background:var(--card);color:var(--fg)}
+  .btn-ghost:hover{border-color:#3f3f46}
+
+  /* ---------- sections ---------- */
+  section{padding:70px 0;border-top:1px solid var(--border)}
+  .sec-label{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:12px}
+  h2{font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:700;letter-spacing:-.02em;margin-bottom:16px}
+  .sec-sub{color:var(--muted);max-width:620px;margin-bottom:36px}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:start}
+  .avatar-wrap{position:relative}
+  .avatar{
+    width:100%;aspect-ratio:1;border-radius:var(--radius);
+    border:1px solid var(--border);
+    background:var(--card2);
+    display:flex;align-items:center;justify-content:center;
+    font-size:5rem;user-select:none;
+  }
+  .avatar-ring{position:absolute;inset:-6px;border-radius:20px;border:1px dashed var(--border)}
+  .about-body p{color:var(--muted);margin-bottom:16px;font-size:1.02rem}
+  .about-body p b{color:var(--fg);font-weight:600}
+  .chiprow{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .chip{
+    font-size:.78rem;color:var(--muted);background:var(--card);
+    border:1px solid var(--border);padding:4px 11px;border-radius:999px;
+  }
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:28px}.avatar{width:180px}}
+
+  /* expertise */
+  .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .exp-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:26px;transition:.15s;
+  }
+  .exp-card:hover{border-color:#37373d;transform:translateY(-2px)}
+  .exp-num{font-size:.75rem;color:var(--accent);margin-bottom:14px}
+  .exp-card h3{font-size:1.08rem;font-weight:600;margin-bottom:10px}
+  .exp-card p{color:var(--muted);font-size:.94rem}
+  @media(max-width:900px){.exp-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:620px){.exp-grid{grid-template-columns:1fr}}
+
+  /* stack */
+  .stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .stack-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+  .stack-card h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:16px}
+  .skills{display:flex;flex-wrap:wrap;gap:8px}
+  .skill{
+    font-size:.82rem;color:var(--fg);background:var(--card2);
+    border:1px solid var(--border);padding:5px 12px;border-radius:8px;
+  }
+  @media(max-width:900px){.stack-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:620px){.stack-grid{grid-template-columns:1fr}}
+
+  /* work */
+  .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .work-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    overflow:hidden;transition:.15s;display:flex;flex-direction:column;
+  }
+  .work-card:hover{border-color:#3f3f46;transform:translateY(-2px)}
+  .work-body{padding:24px}
+  .work-tags{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+  .tag{font-size:.7rem;font-family:'JetBrains Mono',monospace;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:6px}
+  .tag.orig{color:#fbbf24;background:rgba(251,191,36,.12)}
+  .work-card h3{font-size:1.15rem;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .work-card h3 a:hover{color:var(--accent)}
+  .work-card p{color:var(--muted);font-size:.92rem;flex:1}
+  .work-foot{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;border-top:1px solid var(--border);font-size:.85rem}
+  .work-foot span{color:var(--muted);font-size:.78rem}
+  .work-foot a{color:var(--accent);font-weight:500}
+  .work-foot a:hover{text-decoration:underline}
+  @media(max-width:760px){.work-grid{grid-template-columns:1fr}}
+
+  /* contact */
+  .contact-box{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:40px;text-align:center;
+  }
+  .contact-box h3{font-size:1.5rem;margin-bottom:12px}
+  .contact-box p{color:var(--muted);max-width:480px;margin:0 auto 26px}
+  .socials{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+  .social{background:var(--card2);border:1px solid var(--border);padding:9px 18px;border-radius:10px;font-size:.9rem;transition:.15s}
+  .social:hover{border-color:#3f3f46;color:var(--accent)}
+
+  footer{border-top:1px solid var(--border);padding:50px 0;text-align:center;color:var(--muted)}
+  footer .mono{font-size:.8rem;margin-bottom:8px;color:#52525b}
+  footer p{font-size:.85rem}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#">tony<span>.</span>dev</a>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact" class="navbtn">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="glow glow1"></div><div class="glow glow2"></div>
+
+<header>
+  <div class="wrap">
+    <span class="hero-badge"><span class="dot"></span> Available for building things</span>
+    <h1>Hi! I'm <span class="grad">Tony</span>.</h1>
+    <p class="lede">I make games for my friends' sites, tinker with Slack bots, and build whatever sounds fun next. If it's weird and it runs in a browser, I'm probably into it.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#work">Browse Work</a>
+      <a class="btn btn-ghost" href="https://github.com/ToeKnee-top" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="avatar-wrap reveal">
+        <div class="avatar-ring"></div>
+        <div class="avatar">🦆</div>
+      </div>
+      <div class="about-body reveal">
+        <div class="sec-label">About me</div>
+        <h2>Friend-of-friends' sites developer.</h2>
+        <p>I'm <b>Tony</b> (<b>ToeKnee-top</b>), a developer and student out of Houston, Texas. My bio basically writes itself: <b>"I like making games for my friend's sites."</b> That's the whole thing, and I mean it.</p>
+        <p>I build slackbots that have opinions, browser games people actually play, and the occasional over-engineered toy project. A lot of my time goes into Hack Club projects — slinging JS, breaking the build, fixing it, shipping anyway.</p>
+        <p>When I'm not pushing code I'm probably making something that could be described as "a game" and hoping my friends let me put it on their site.</p>
+        <div class="chiprow">
+          <span class="chip mono">Hack Club</span>
+          <span class="chip mono">Houston, TX</span>
+          <span class="chip mono">JavaScript</span>
+          <span class="chip mono">game maker</span>
+          <span class="chip mono">(･ω･)つ⊂(･ω･)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="wrap">
+    <div class="sec-label reveal">What I do</div>
+    <h2 class="reveal">I break things until they're fun.</h2>
+    <p class="sec-sub reveal">Focused on building playful, practical things with the web.</p>
+    <div class="exp-grid">
+      <div class="exp-card reveal"><div class="exp-num mono">01</div><h3>Browser Games</h3><p>Making playable little games for my friends' sites — the purest motivation there is.</p></div>
+      <div class="exp-card reveal"><div class="exp-num mono">02</div><h3>Slack Bots</h3><p>Bots with personality, web access, and the occasional threat to leak your IP (they don't mean it. mostly).</p></div>
+      <div class="exp-card reveal"><div class="exp-num mono">03</div><h3>Web Tinkering</h3><p>Proxies, sites, and random experiments. If it compiles, ship it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-label reveal">Stack</div>
+    <h2 class="reveal">Tools of the trade.</h2>
+    <p class="sec-sub reveal">The stuff I reach for when the browser tab is where the magic happens.</p>
+    <div class="stack-grid">
+      <div class="stack-card reveal"><h4>Languages</h4><div class="skills"><span class="skill">JavaScript</span><span class="skill">TypeScript</span><span class="skill">HTML/CSS</span></div></div>
+      <div class="stack-card reveal"><h4>Frontend</h4><div class="skills"><span class="skill">React</span><span class="skill">Canvas</span><span class="skill">Vanilla JS</span></div></div>
+      <div class="stack-card reveal"><h4>Bots &amp; APIs</h4><div class="skills"><span class="skill">Slack API</span><span class="skill">Node.js</span><span class="skill">Bun</span></div></div>
+      <div class="stack-card reveal"><h4>Tooling</h4><div class="skills"><span class="skill">Git</span><span class="skill">Vite</span><span class="skill">Render</span><span class="skill">GitHub Pages</span></div></div>
+      <div class="stack-card reveal"><h4>Vibes</h4><div class="skills"><span class="skill">Hack Club</span><span class="skill">stay up late</span><span class="skill">ship it</span></div></div>
+      <div class="stack-card reveal"><h4>Mascots</h4><div class="skills"><span class="skill">Horns 🦖</span><span class="skill">Geese 🦆</span><span class="skill">Duck 🦆</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-label reveal">Work</div>
+    <h2 class="reveal">A snapshot of recent projects.</h2>
+    <p class="sec-sub reveal">Mostly games, bots, and things I built because a friend asked (or to make a friend's site cooler).</p>
+    <div class="work-grid">
+
+      <div class="work-card reveal">
+        <div class="work-body">
+          <div class="work-tags"><span class="tag">JAVASCRIPT</span><span class="tag orig">ORIGINAL</span></div>
+          <h3><a href="https://toeknee-top.github.io/tdg.github.io/" target="_blank" rel="noopener">→ tdg.github.io</a></h3>
+          <p>A game built for Stardance — one of those "can I actually finish a thing" projects that I actually finished.</p>
+        </div>
+        <div class="work-foot"><span>game · Stardance</span><a href="https://github.com/ToeKnee-top/tdg.github.io" target="_blank" rel="noopener">GitHub ↗</a></div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-body">
+          <div class="work-tags"><span class="tag">JAVASCRIPT</span><span class="tag orig">ORIGINAL</span></div>
+          <h3><a href="https://github.com/ToeKnee-top/QuackX" target="_blank" rel="noopener">→ QuackX</a></h3>
+          <p>A Hack Club slackbot. Has on/off commands, roasts, and strong feelings about being pinged during naptime.</p>
+        </div>
+        <div class="work-foot"><span>slackbot</span><a href="https://github.com/ToeKnee-top/QuackX" target="_blank" rel="noopener">GitHub ↗</a></div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-body">
+          <div class="work-tags"><span class="tag">JAVASCRIPT</span><span class="tag orig">ORIGINAL</span></div>
+          <h3><a href="https://github.com/ToeKnee-top/Doge-net" target="_blank" rel="noopener">→ Doge-net</a></h3>
+          <p>An early original project. The kind of thing you build before you know what you're doing and keep anyway.</p>
+        </div>
+        <div class="work-foot"><span>experiment</span><a href="https://github.com/ToeKnee-top/Doge-net" target="_blank" rel="noopener">GitHub ↗</a></div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-body">
+          <div class="work-tags"><span class="tag">TYPESCRIPT</span></div>
+          <h3><a href="https://github.com/ToeKnee-top/Forkie" target="_blank" rel="noopener">→ Forkie</a></h3>
+          <p>A Slack agent that can search the web and edit repos. Currently running this exact test. Meta.</p>
+        </div>
+        <div class="work-foot"><span>slack agent · fork</span><a href="https://github.com/ToeKnee-top/Forkie" target="_blank" rel="noopener">GitHub ↗</a></div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-body">
+          <div class="work-tags"><span class="tag">WEB</span></div>
+          <h3><a href="https://rawr.hackclub.com" target="_blank" rel="noopener">→ Orpheus Drawings</a></h3>
+          <p>A collection of Hack Club's mascot, Orpheus, made at Hack Club events. Go look at them, they're great.</p>
+        </div>
+        <div class="work-foot"><span>collection · hack club</span><a href="https://github.com/ToeKnee-top/ToeKnee_top_orph_spidey" target="_blank" rel="noopener">GitHub ↗</a></div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-body">
+          <div class="work-tags"><span class="tag">WEB</span></div>
+          <h3><a href="https://gointospace.app" target="_blank" rel="noopener">→ Space.</a></h3>
+          <p>A clean web proxy with games, apps, and features. A classic Hack Club pastime, lovingly forked.</p>
+        </div>
+        <div class="work-foot"><span>proxy · fork</span><a href="https://github.com/ToeKnee-top/Space." target="_blank" rel="noopener">GitHub ↗</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <div class="sec-label">Let's build</div>
+      <h3>Got a site that needs a game?</h3>
+      <p>That's literally my whole thing. Reach out, or find me somewhere on the internet.</p>
+      <div class="socials">
+        <a class="social" href="https://github.com/ToeKnee-top" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="social" href="https://the-duckgame.onrender.com" target="_blank" rel="noopener">the duck game ↗</a>
+        <a class="social" href="https://hackclub.com" target="_blank" rel="noopener">Hack Club ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="mono">(･ω･)つ⊂(･ω･)</div>
+    <p>Built by Tony Di Bonifacio · © <span id="yr"></span></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

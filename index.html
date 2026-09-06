@@ -212,9 +212,9 @@
 </header>
 
 <div class="wrap stats">
-  <div class="stat"><div class="stat-num mono">9</div><div class="stat-label">Public Repos</div></div>
-  <div class="stat"><div class="stat-num mono">5</div><div class="stat-label">Followers</div></div>
-  <div class="stat"><div class="stat-num mono">10</div><div class="stat-label">Following</div></div>
+  <div class="stat"><div class="stat-num mono" id="statRepos">9</div><div class="stat-label">Public Repos</div></div>
+  <div class="stat"><div class="stat-num mono" id="statFollowers">5</div><div class="stat-label">Followers</div></div>
+  <div class="stat"><div class="stat-num mono" id="statFollowing">10</div><div class="stat-label">Following</div></div>
 </div>
 
 <section id="about">
@@ -366,6 +366,25 @@
     es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
   },{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<script>
+  // Live GitHub stats — keeps the numbers fresh without changing the look.
+  (function(){
+    var nums = {
+      repos:    document.getElementById('statRepos'),
+      followers:document.getElementById('statFollowers'),
+      following:document.getElementById('statFollowing')
+    };
+    function set(el, v){ if(el) el.textContent = Number(v).toLocaleString(); }
+    fetch('https://api.github.com/users/ToeKnee-top')
+      .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(u){
+        set(nums.repos, u.public_repos ?? nums.repos.textContent);
+        set(nums.followers, u.followers ?? nums.followers.textContent);
+        set(nums.following, u.following ?? nums.following.textContent);
+      })
+      .catch(function(){ /* keep the hardcoded fallback on failure */ });
+  })();
 </script>
 </body>
 </html>

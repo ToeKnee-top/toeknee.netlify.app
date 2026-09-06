@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Tony Di Bonifacio</title>
-<meta name="description" content="Tony Di Bonifacio (ToeKnee-top) — developer and game maker. Building games for friends' sites and tinkering with Slack bots." />
+<meta name="description" content="Tony Di Bonifacio (ToeKnee-top) — 14 y/o into programming (games), model rocketry, Arduino, hardware builds, games, fishing, and cross country." />
 <meta property="og:title" content="Tony Di Bonifacio" />
-<meta property="og:description" content="I make games for my friends' sites." />
+<meta property="og:description" content="14 y/o into programming (games), model rocketry, Arduino, hardware builds, games, fishing, and cross country." />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -110,6 +110,12 @@
   }
   @media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:28px}.avatar{width:180px}}
 
+  /* ---------- stats ---------- */
+  .stats{display:flex;gap:12px;flex-wrap:wrap;margin:-30px 0 0}
+  .stat{flex:1;min-width:150px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+  .stat-num{font-size:2rem;font-weight:700;color:var(--accent);letter-spacing:-.02em}
+  .stat-label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+
   /* expertise */
   .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .exp-card{
@@ -194,7 +200,7 @@
   <div class="wrap">
     <span class="hero-badge"><span class="dot"></span> Available for building things</span>
     <h1>Hi! I'm <span class="grad">Tony</span>.</h1>
-    <p class="lede">I make games for my friends' sites, tinker with Slack bots, and build whatever sounds fun next. If it's weird and it runs in a browser, I'm probably into it.</p>
+    <p class="lede">I'm a 14 y/o into programming (games), model rocketry, Arduino, hardware builds, games, fishing, and cross country. If it's weird and it runs in a browser, I'm probably into it.</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#work">Browse Work</a>
       <a class="btn btn-ghost" href="https://github.com/ToeKnee-top" target="_blank" rel="noopener">
@@ -205,6 +211,12 @@
   </div>
 </header>
 
+<div class="wrap stats">
+  <div class="stat"><div class="stat-num mono">9</div><div class="stat-label">Public Repos</div></div>
+  <div class="stat"><div class="stat-num mono">5</div><div class="stat-label">Followers</div></div>
+  <div class="stat"><div class="stat-num mono">10</div><div class="stat-label">Following</div></div>
+</div>
+
 <section id="about">
   <div class="wrap">
     <div class="about-grid">
@@ -214,16 +226,17 @@
       </div>
       <div class="about-body reveal">
         <div class="sec-label">About me</div>
-        <h2>Friend-of-friends' sites developer.</h2>
-        <p>I'm <b>Tony</b> (<b>ToeKnee-top</b>), a developer and student out of Houston, Texas. My bio basically writes itself: <b>"I like making games for my friend's sites."</b> That's the whole thing, and I mean it.</p>
+        <h2>Games, rockets, and hardware builds.</h2>
+        <p>I'm <b>Tony</b> (<b>ToeKnee-top</b>), a 14 y/o developer and student out of Houston, Texas. To quote my own bio: <b>"I am a 14 y/o interested in programming (games), model rocketry, arduino, hardware builds, games, fishing, and cross country."</b> That's the whole thing, and I mean it.</p>
         <p>I build slackbots that have opinions, browser games people actually play, and the occasional over-engineered toy project. A lot of my time goes into Hack Club projects — slinging JS, breaking the build, fixing it, shipping anyway.</p>
-        <p>When I'm not pushing code I'm probably making something that could be described as "a game" and hoping my friends let me put it on their site.</p>
+        <p>When I'm not pushing code I'm probably launching a model rocket, wiring up an Arduino, or making something that could be described as "a game" and hoping my friends let me put it on their site.</p>
         <div class="chiprow">
           <span class="chip mono">Hack Club</span>
           <span class="chip mono">Houston, TX</span>
           <span class="chip mono">JavaScript</span>
+          <span class="chip mono">model rockets</span>
+          <span class="chip mono">Arduino</span>
           <span class="chip mono">game maker</span>
-          <span class="chip mono">(･ω･)つ⊂(･ω･)</span>
         </div>
       </div>
     </div>
